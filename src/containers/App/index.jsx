@@ -14,7 +14,7 @@ import AppError from 'components/AppError';
 import NotFound from 'containers/NotFound';
 
 const App = () => (
-  <ErrorBoundary fallbackComponent={AppError}>
+  <ErrorBoundary onError={() => undefined} fallbackComponent={AppError}>
     <Switch>
       <Layout exact path="/" component={Home} />
       <Layout path="*" component={NotFound} />
