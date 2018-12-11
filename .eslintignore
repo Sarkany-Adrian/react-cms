@@ -1,3 +1,9 @@
-node_modules
 build
 coverage
+flow-coverage
+node_modules
+jest.config.js
+.idea
+.vscode
+flow-typed
+custom-definitions

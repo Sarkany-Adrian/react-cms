@@ -140,7 +140,7 @@ module.exports = env => {
           ]
         },
         // return public URL for all assets unless explicitly excluded
-        // DO'NT FORGET to update `exclude` list when you're adding a new loader
+        // DON'T FORGET to update `exclude` list when you're adding a new loader
         {
           exclude: [
             /\.(js|jsx)$/,
@@ -166,7 +166,7 @@ module.exports = env => {
           }
         }
       },
-      // keep the runtime chunk seperated to enable long term caching
+      // keep the runtime chunk separated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
       runtimeChunk: true
     },
@@ -181,7 +181,7 @@ module.exports = env => {
     },
     bail: isProduction,
     cache: !isProduction,
-    devtool: isProduction ? 'source-map' : 'chep-module-inline-source-map',
+    devtool: isProduction ? 'source-map' : 'cheap-module-inline-source-map',
     plugins: [
       isProduction ? false : new webpack.HotModuleReplacementPlugin(),
       new CleanWebpackPlugin(['build']),

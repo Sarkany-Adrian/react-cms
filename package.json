@@ -20,7 +20,7 @@
     "flow:check": "./node_modules/.bin/flow check",
     "lint:all": "./node_modules/.bin/eslint . --ext .js --ext .jsx",
     "lint-precommit": "lint-staged",
-    "rm-dep": "./node_modules/.bin/rimraf node_modules && ./node_modules/.bin/rimraf package-lock.json"
+    "rm-dep": "./node_modules/.bin/rimraf package-lock.json && ./node_modules/.bin/rimraf node_modules"
   },
   "lint-staged": {
     "*.{js,jsx}": [
