@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
 
-const Header = () => <div>header</div>;
+function Header(): React$Element<'div'> {
+  return <div>header</div>;
+}
 
 export default Header;

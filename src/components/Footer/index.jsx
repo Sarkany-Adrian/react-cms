@@ -1,7 +1,11 @@
 // @flow
 import React from 'react';
+// style
 import './style.scss';
+// material components
 
-const Footer = () => <div className="footer">footer</div>;
+function Footer(): React$Element<'div'> {
+  return <div className="footer">footer</div>;
+}
 
 export default Footer;

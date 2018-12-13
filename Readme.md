@@ -1,4 +1,4 @@
-Starter project using: ReactJS, webpack 4.
+CMS Starter project using: ReactJS, webpack 4 and flow for type checking.
 
 # Getting started
 tba
@@ -16,6 +16,8 @@ Available commands:
 2. ``` npm run build ``` - setup build
 3. ``` npm run clean ``` - remove build generated files
 4. ``` npm run test ``` - tba
+5. ``` npm run lint:all ``` - checks the codebase against
+linting and type checking errors
 
 # Build and deploy
 tba

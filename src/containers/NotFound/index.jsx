@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
 
-const NotFound = () => <div>not found</div>;
+function NotFound(): React$Element<'div'> {
+  return <div>not found</div>;
+}
 
 export default NotFound;

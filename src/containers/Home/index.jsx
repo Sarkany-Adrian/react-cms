@@ -2,11 +2,13 @@
 import React from 'react';
 import Footer from 'components/Footer';
 
-const Home = () => (
-  <div>
-    <p>home page</p>
-    <Footer />
-  </div>
-);
+function Home(): React$Element<'div'> {
+  return (
+    <div>
+      <p>home page</p>
+      <Footer />
+    </div>
+  );
+}
 
 export default Home;

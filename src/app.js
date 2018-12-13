@@ -6,7 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 // Routes container
 import App from 'containers/App';
 
-const appContainer = document.getElementById('root');
+const appContainer: HTMLElement | null =
+  document && document.getElementById('root');
 
 if (appContainer) {
   ReactDOM.render(
