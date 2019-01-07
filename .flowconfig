@@ -10,10 +10,14 @@ all=warn
 
 [options]
 module.system=node
+
 module.system.node.resolve_dirname=node_modules
 module.system.node.resolve_dirname=src
 
 module.name_mapper.extension='css' -> '<PROJECT_ROOT>/StyleStub.js.flow'
 module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/StyleStub.js.flow'
+
+;use mobx decorators
+esproposal.decorators=ignore
 
 [strict]

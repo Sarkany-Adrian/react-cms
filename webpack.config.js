@@ -14,6 +14,13 @@ const autoprefixer = require('autoprefixer');
 
 const minimizeCssOptions = { discardComments: { removeAll: true } };
 
+// scripts regex
+const reScript = /\.(js|jsx)$/;
+// styles regex
+const reStyle = /\.(css|scss|sass)$/;
+// images regex
+const reImage = /\.(bmp|gif|jpg|jpeg|png|svg)$/;
+
 module.exports = env => {
   const isProduction = !!(env && env.production);
   const staticAssetName = isProduction
@@ -42,7 +49,7 @@ module.exports = env => {
       strictExportPresence: true,
       rules: [
         {
-          test: /\.(js|jsx)$/,
+          test: reScript,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
@@ -52,7 +59,7 @@ module.exports = env => {
           }
         },
         {
-          test: /\.(css|scss|sass)$/,
+          test: reStyle,
           rules: [
             {
               loader: isProduction
@@ -104,10 +111,10 @@ module.exports = env => {
           ]
         },
         {
-          test: /\.(bmp|gif|jpg|jpeg|png|svg)$/,
+          test: reImage,
           oneOf: [
             {
-              issuer: /\.(css|scss|sass)$/,
+              issuer: reStyle,
               oneOf: [
                 // inline lightweight SVGs as UTF-8 encoded DataUrl string
                 {
@@ -143,9 +150,9 @@ module.exports = env => {
         // DON'T FORGET to update `exclude` list when you're adding a new loader
         {
           exclude: [
-            /\.(js|jsx)$/,
-            /\.(css|scss|sass)$/,
-            /\.(bmp|gif|jpg|jpeg|png|svg)$/,
+            reScript,
+            reStyle,
+            reImage,
             /\.json$/,
             /\.html$/
           ],
@@ -179,6 +186,9 @@ module.exports = env => {
         ignored: '/node_modules/'
       }
     },
+    stats: isProduction
+      ? 'errors-only'
+      : 'minimal',
     bail: isProduction,
     cache: !isProduction,
     devtool: isProduction ? 'source-map' : 'cheap-module-inline-source-map',

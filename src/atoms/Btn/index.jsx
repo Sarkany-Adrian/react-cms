@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import Button from '@material-ui/core/Button';
 
 type Props = {
   children: React$Element<*> | string,
@@ -11,13 +10,12 @@ function Btn(props: Props): React$Element<'button'> {
   const { children, handleClick } = props;
 
   return (
-    <Button
-      variant="contained"
-      color="primary"
+    <button
+      type="button"
       onClick={(e: SyntheticKeyboardEvent<*>) => handleClick(e)}
     >
       {children}
-    </Button>
+    </button>
   );
 }
 
