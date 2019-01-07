@@ -6,7 +6,7 @@ type Props = {
   handleClick: (e: SyntheticKeyboardEvent<*>) => void
 };
 
-function Btn(props: Props): React$Element<'button'> {
+function Button(props: Props): React$Element<'button'> {
   const { children, handleClick } = props;
 
   return (
@@ -19,4 +19,4 @@ function Btn(props: Props): React$Element<'button'> {
   );
 }
 
-export default Btn;
+export default Button;

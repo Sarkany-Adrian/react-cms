@@ -1,10 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 // atoms
-import Btn from 'atoms/Btn';
+import Button from 'atoms/Button';
 // mobx
 import { inject, observer } from 'mobx-react';
-// import { when } from 'mobx';
 import { enableLogging } from 'mobx-logger';
 
 enableLogging();
@@ -21,7 +20,7 @@ class Login extends Component<*, Props> {
   handleClick = (e: SyntheticKeyboardEvent<*>) => {
     const { auth, history } = this.props;
     e.preventDefault();
-    auth.setLoggedIn(true);
+    auth.setLoggedIn(true); // handle some login login here
 
     history.push('/');
   };
@@ -30,7 +29,7 @@ class Login extends Component<*, Props> {
     return (
       <div className="login-wrapper">
         <p>Login to continue:</p>
-        <Btn handleClick={this.handleClick}>Login</Btn>
+        <Button handleClick={this.handleClick}>Login</Button>
       </div>
     );
   }
