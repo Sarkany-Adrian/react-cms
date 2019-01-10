@@ -10,10 +10,7 @@ function Button(props: Props): React$Element<'button'> {
   const { children, handleClick } = props;
 
   return (
-    <button
-      type="button"
-      onClick={(e: SyntheticKeyboardEvent<*>) => handleClick(e)}
-    >
+    <button type="button" onClick={handleClick}>
       {children}
     </button>
   );
