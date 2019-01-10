@@ -1,23 +1,33 @@
-React CMS boilerplate &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)]
+### React CMS boilerplate &middot; ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 # Getting started
-tba
 
-# Setup
-1. Make sure you are using at least node v10.6.0 and npm version 6.4.1
-2. Clone the project:
-  ``` git@github.com:Sarkany-Adrian/react-cms.git ```
-3. Run ``` npm i ``` for dependencies
-4. Create a ```.env``` file inside the project root and copy the content from the ```.env.example``` inside it
-5. Start the project
+* Follow the [getting started guide](./docs/getting-started.md) to download and run the project
+* Check the [technology spec and packages](./docs/techspec-and-packages.md) used in this boilerplate
+* Make sure to read [code recipes](./docs/code-recipes.md) before starting to contribute to the project
 
-Available commands:
+# Available commands:
 1. ``` npm start ``` - start the project
 2. ``` npm run build ``` - setup build
 3. ``` npm run clean ``` - remove build generated files
-4. ``` npm run test ``` - tba
-5. ``` npm run lint:all ``` - checks the codebase against
+4. ``` npm run test ``` - runs jest tests
+5. ``` npm run test:coverage ``` - displays the project test coverage
+6. ``` npm run lint:all ``` - checks the codebase against
 linting and type checking errors
 
 # Build and deploy
+1. ``` npm install ```
+2. ``` npm run build ```
+3. ``` npm install --production ```
+4. ``` npm prune --production ```
+5. ``` pm2 startOrRestart ecosystem.config.js --env production ```
+
+Note: The port on the server will be `3000`.
+
+# Setup nginx vhost
 tba
+
+### Licence
+
+Copyright © 2017-present Sarkany Adrian. This source code is licensed under the MIT
+license found in the [LICENSE](./LICENSE.md) file.
