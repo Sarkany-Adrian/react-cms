@@ -1,15 +1,15 @@
 {
   "name": "react-setup2",
   "version": "1.0.0",
-  "description": "Starter project using with webpack 4 and react",
-  "main": "index.js",
+  "description": "CMS boilerplate using with react, webpack 4, mobx",
+  "main": "app.js",
   "engines": {
     "node": "10.6.0",
     "npm": "6.5.0"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Sarkany-Adrian/react-cms"
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --mode development",
@@ -27,7 +27,16 @@
       "./node_modules/.bin/eslint"
     ]
   },
-  "keywords": [],
+  "keywords": [
+    "github",
+    "react",
+    "webpack",
+    "mobx",
+    "admin",
+    "template",
+    "boilerplate",
+    "cms"
+  ],
   "author": "Sarkany Adrian <sarkany1@outlook.com>",
   "bugs": {
     "url": "https://github.com/Sarkany-Adrian/webpack4-react-starter/issues"
