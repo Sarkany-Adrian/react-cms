@@ -1,4 +1,4 @@
-CMS Starter project using: ReactJS, webpack 4 and flow for type checking.
+React CMS boilerplate &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)]
 
 # Getting started
 tba
