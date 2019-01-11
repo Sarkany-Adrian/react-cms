@@ -1,6 +1,6 @@
 ## Code Recipes
 
-### 1. BEM
+### 1. BEM (styling notation)
 This project is using BEM notation for styling. <br/>
 **Ex:**
 block-name__element-name--modifier

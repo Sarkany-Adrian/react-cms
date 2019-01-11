@@ -24,10 +24,14 @@ linting and type checking errors
 
 Note: The port on the server will be `3000`.
 
-# Setup nginx vhost
-tba
+# General Notes
 
-### Licence
+### Precommit hooks:
+  - no linter errors are permited (PR's containing disabling of linter checks will be rejected)
+  - a test coverage of 100% is required (PR's with less that 100% coverage will be rejected)
 
-Copyright © 2017-present Sarkany Adrian. This source code is licensed under the MIT
+
+# Licence
+
+Copyright © 2018-present Sarkany Adrian. This source code is licensed under the MIT
 license found in the [LICENSE](./LICENSE.md) file.
