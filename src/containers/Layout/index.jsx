@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import type { ComponentType, Element } from 'react';
-import { Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 // components
 import Header from 'containers/Layout/Header';
 import Footer from 'containers/Layout/Footer';
@@ -15,7 +15,8 @@ type Props = {
   component: ComponentType<*>,
   path: string,
   exact: ?boolean,
-  auth: Object
+  auth: Object,
+  location: Object
 };
 
 type State = {
@@ -37,7 +38,7 @@ class Layout extends Component<Props, State> {
   };
 
   render() {
-    const { component: Comp, auth, ...rest } = this.props;
+    const { component: Comp, auth, location, ...rest } = this.props;
     const { isSidebarOpen } = this.state;
 
     return (
@@ -47,18 +48,20 @@ class Layout extends Component<Props, State> {
         <div className="app-content">
           <Route
             {...rest}
-            render={(matchProps: Props): ComponentType<*> | Element<*> =>
-              auth.isLoggedIn ? (
-                <Comp {...matchProps} />
-              ) : (
-                <Redirect
-                  to={{
-                    pathname: '/login'
-                    // state: { from: this.props.location }
-                  }}
-                />
-              )
-            }
+            render={(matchProps: Props): ComponentType<*> | Element<*> => (
+              // auth.isLoggedIn ? (
+              //   <Comp {...matchProps} />
+              // ) : (
+              //   <Redirect
+              //     to={{
+              //       pathname: '/login',
+              //       state: { from: location }
+              //     }}
+              //   />
+              // )
+
+              <Comp {...matchProps} />
+            )}
           />
         </div>
         <Footer />

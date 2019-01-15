@@ -14,10 +14,9 @@ import NotFound from 'containers/NotFound';
 // Error page
 import Error from 'containers/Error';
 // mobx - use strict
+import { configure } from 'mobx';
 // enforces a workflow where only actions can modify the state
 // similar to redux
-import { configure } from 'mobx';
-
 configure({
   enforceActions: 'observed'
 });

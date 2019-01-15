@@ -11,7 +11,7 @@ import './style.scss';
 class Sidebar extends PureComponent<*> {
   render() {
     return (
-      <aside>
+      <aside className="app-sidebar">
         <div>user block</div>
         <ul>
           {sidebarLinks.map((link: SidebarLink) => (

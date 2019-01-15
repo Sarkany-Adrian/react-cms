@@ -11,16 +11,17 @@ enableLogging();
 import './style.scss';
 
 type Props = {
-  auth: Object
+  auth: Object,
+  history: Object
 };
 
 @inject(['auth'])
 @observer
-class Login extends Component<*, Props> {
-  handleClick = (e: SyntheticKeyboardEvent<*>) => {
+class Login extends Component<Props> {
+  onClick = (e: SyntheticKeyboardEvent<*>) => {
     const { auth, history } = this.props;
     e.preventDefault();
-    auth.setLoggedIn(true); // handle some login login here
+    auth.setLoggedIn(true);
 
     history.push('/');
   };
@@ -29,7 +30,7 @@ class Login extends Component<*, Props> {
     return (
       <div className="login-wrapper">
         <p>Login to continue:</p>
-        <Button handleClick={this.handleClick}>Login</Button>
+        <Button onClick={this.onClick}>Login</Button>
       </div>
     );
   }
