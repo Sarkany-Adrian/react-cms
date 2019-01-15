@@ -8,7 +8,7 @@ type FallbackComponentProps = {
 
 type ErrorBoundaryProps = {
   children: React.Node,
-  fallbackComponent: React.ComponentType<FallbackComponentProps>,
+  FallbackComponent: React.ComponentType<FallbackComponentProps>,
   onError: ?(error: Error, info: Object) => void
 };
 
@@ -41,12 +41,13 @@ class ErrorBoundary extends React.Component<
   }
 
   render() {
-    const { fallbackComponent, children } = this.props;
+    const { FallbackComponent, children } = this.props;
     const { error, info } = this.state;
 
     if (error && info) {
       // If an error occurs, render the error component
-      return React.createElement(fallbackComponent, { error, info });
+      return <FallbackComponent error={error} info={info} />;
+      // return React.createElement(fallbackComponent, { error, info });
     }
 
     // Or just render children

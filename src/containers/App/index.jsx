@@ -23,7 +23,7 @@ configure({
 
 function App(): React$Element<*> {
   return (
-    <ErrorBoundary onError={() => undefined} fallbackComponent={AppError}>
+    <ErrorBoundary onError={() => undefined} FallbackComponent={AppError}>
       <Switch>
         <Layout exact path="/" component={Home} />
         {/* Error page */}
