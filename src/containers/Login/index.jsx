@@ -17,10 +17,10 @@ type Props = {
 @inject(['auth'])
 @observer
 class Login extends Component<*, Props> {
-  handleClick = (e: SyntheticKeyboardEvent<*>) => {
+  onClick = (e: SyntheticKeyboardEvent<*>) => {
     const { auth, history } = this.props;
     e.preventDefault();
-    auth.setLoggedIn(true); // handle some login login here
+    auth.setLoggedIn(true);
 
     history.push('/');
   };
@@ -29,7 +29,7 @@ class Login extends Component<*, Props> {
     return (
       <div className="login-wrapper">
         <p>Login to continue:</p>
-        <Button handleClick={this.handleClick}>Login</Button>
+        <Button onClick={this.onClick}>Login</Button>
       </div>
     );
   }

@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 
 import Button from 'atoms/Button';
 
-const handleClick = jest.fn();
+const onClick = jest.fn();
 
-describe('button', () => {
+describe('Button atom', () => {
   it('should render the button', () => {
-    const wrapper = shallow(<Button handleClick={handleClick}>Test</Button>);
+    const wrapper = shallow(<Button onClick={onClick}>Test</Button>);
     expect(
       wrapper.equals(
-        <button type="button" onClick={handleClick}>
+        <button type="button" onClick={onClick}>
           Test
         </button>
       )
