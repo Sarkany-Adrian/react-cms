@@ -5,6 +5,10 @@ import ErrorBoundary from 'components/ErrorBoundary';
 import AppError from 'components/AppError';
 import toJson from 'enzyme-to-json';
 
+// const ProblemChild = () => {
+//   throw new Error('something went wrong');
+// };
+
 describe('Error Boundary component', () => {
   it('should render children - no error', () => {
     const defaultProps = {
@@ -32,4 +36,13 @@ describe('Error Boundary component', () => {
 
     expect(toJson(wrapper)).toMatchSnapshot();
   });
+
+  // it('catches the error and returns a fallback component', () => {
+  //   const wrapper = shallow(
+  //     <ErrorBoundary>
+  //       <ProblemChild />
+  //     </ErrorBoundary>
+  //   );
+  //   expect(toJson(wrapper)).toMatchSnapshot();
+  // });
 });
