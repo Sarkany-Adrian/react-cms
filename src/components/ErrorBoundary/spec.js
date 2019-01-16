@@ -1,13 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import ErrorBoundary from 'components/ErrorBoundary';
 import AppError from 'components/AppError';
 import toJson from 'enzyme-to-json';
 
-// const ProblemChild = () => {
-//   throw new Error('something went wrong');
-// };
+const ProblemChild = () => null;
 
 describe('Error Boundary component', () => {
   it('should render children - no error', () => {
@@ -37,12 +35,20 @@ describe('Error Boundary component', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  // it('catches the error and returns a fallback component', () => {
-  //   const wrapper = shallow(
-  //     <ErrorBoundary>
-  //       <ProblemChild />
-  //     </ErrorBoundary>
-  //   );
-  //   expect(toJson(wrapper)).toMatchSnapshot();
-  // });
+  it('triggers component did catch lifecycle method when an error is received', () => {
+    const defaultProps = {
+      children: <span>test children</span>,
+      FallbackComponent: AppError
+    };
+
+    const wrapper = mount(
+      <ErrorBoundary {...defaultProps}>
+        <ProblemChild />
+      </ErrorBoundary>
+    );
+
+    const error = new Error('hi!');
+    wrapper.find(ProblemChild).simulateError(error);
+    expect(wrapper.state('error')).toEqual(error);
+  });
 });

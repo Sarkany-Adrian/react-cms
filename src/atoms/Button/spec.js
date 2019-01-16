@@ -16,4 +16,11 @@ describe('Button atom', () => {
       )
     ).toBe(true);
   });
+
+  it('should call the on click prop', () => {
+    const mockCallBack = jest.fn();
+    const button = shallow(<Button onClick={mockCallBack}>Ok!</Button>);
+    button.find('button').simulate('click');
+    expect(mockCallBack.mock.calls.length).toEqual(1);
+  });
 });
