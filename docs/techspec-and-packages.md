@@ -18,7 +18,6 @@ The core idea behind it is to make producing an inconsistent state impossible, b
 ### Testing
 
 This project uses [Jest](https://jestjs.io/) as its testing environment, alogng with [Enzyme](https://github.com/airbnb/enzyme) which is a utility library to render react components into the DOM and query the DOM tree for assertions provided by [jest-enzyme](https://github.com/FormidableLabs/enzyme-matchers/tree/master/packages/jest-enzyme#readme).
-- Please note that test coverage must be at 100% to **be able to commit or submit a PR**.
 ---
 ### Typechecking
 
