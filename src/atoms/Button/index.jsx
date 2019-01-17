@@ -3,14 +3,14 @@ import React from 'react';
 
 type Props = {
   children: React$Element<*> | string,
-  handleClick: (e: SyntheticKeyboardEvent<*>) => void
+  onClick: (e: SyntheticKeyboardEvent<*>) => void
 };
 
 function Button(props: Props): React$Element<'button'> {
-  const { children, handleClick } = props;
+  const { children, onClick } = props;
 
   return (
-    <button type="button" onClick={handleClick}>
+    <button type="button" onClick={onClick}>
       {children}
     </button>
   );

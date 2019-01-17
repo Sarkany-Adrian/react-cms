@@ -13,7 +13,7 @@ module.exports = {
 
   // An array of glob patterns indicating a set of files for which coverage
   // information should be collected
-  collectCoverageFrom: ['src/**/*.{js,jsx}', '!**/node_modules/**'],
+  collectCoverageFrom: ['src/**/*.{js,jsx}', '!**/node_modules/**', '!src/app.js'],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
@@ -42,6 +42,8 @@ module.exports = {
     '\\.(css|less|styl|scss|sass|sss)$': 'identity-obj-proxy'
   },
 
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+
   // The path to a module that runs some code to configure or set up the testing
   // framework before each test
   setupTestFrameworkScriptFile: 'jest-enzyme',
@@ -53,7 +55,8 @@ module.exports = {
   // A map from regular expressions to paths to transformers
   transform: {
     '\\.(js|jsx)$': 'babel-jest',
-    '^(?!.*\\.(js|jsx|json|css|less|styl|scss|sass|sss)$)': '<rootDir>/jest.resolver.js'
+    '^(?!.*\\.(js|jsx|json|css|less|styl|scss|sass|sss)$)':
+      '<rootDir>/jest.resolver.js'
   },
 
   // Indicates whether each individual test should be reported during the run
