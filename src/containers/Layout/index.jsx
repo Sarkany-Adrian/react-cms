@@ -6,6 +6,8 @@ import { Route, withRouter } from 'react-router-dom';
 import Header from 'containers/Layout/Header';
 import Footer from 'containers/Layout/Footer';
 import Sidebar from 'containers/Layout/Sidebar';
+import LeftSection from 'atoms/HeaderSections/LeftSection';
+import RightSection from 'atoms/HeaderSections/RightSection';
 // mobx
 import { observer, inject } from 'mobx-react';
 // style
@@ -43,7 +45,20 @@ class Layout extends Component<Props, State> {
 
     return (
       <div className="app-wrapper">
-        <Header toggleSidebar={this.toggleSidebar} />
+        <Header
+          left={
+            <LeftSection
+              onClickMenu={this.toggleSidebar}
+              onClickProfile={this.toggleSidebar}
+            />
+          }
+          right={
+            <RightSection
+              onClickSettings={this.toggleSidebar}
+              onClickProfile={this.toggleSidebar}
+            />
+          }
+        />
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={this.toggleSidebar} />
         <div className="app-content">
           <Route
