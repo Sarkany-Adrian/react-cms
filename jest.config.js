@@ -42,6 +42,7 @@ module.exports = {
     '\\.(css|less|styl|scss|sass|sss)$': 'identity-obj-proxy'
   },
 
+  // Adjust and format the output of a snapshot to make it more readable
   snapshotSerializers: ['enzyme-to-json/serializer'],
 
   // The path to a module that runs some code to configure or set up the testing

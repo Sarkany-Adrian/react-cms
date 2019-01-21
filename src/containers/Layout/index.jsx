@@ -2,10 +2,11 @@
 import React, { Component } from 'react';
 import type { ComponentType, Element } from 'react';
 import { Route, withRouter } from 'react-router-dom';
+import cx from 'classnames';
 // components
 import Header from 'containers/Layout/Header';
 import Footer from 'containers/Layout/Footer';
-import Sidebar from 'containers/Layout/Sidebar';
+import ConnectedSidebar from 'containers/Layout/Sidebar';
 // mobx
 import { observer, inject } from 'mobx-react';
 // style
@@ -30,11 +31,8 @@ class Layout extends Component<Props, State> {
     isSidebarOpen: false
   };
 
-  toggleSidebar = () => {
-    this.setState((state: State) => ({
-      ...state,
-      isSidebarOpen: !state.isSidebarOpen
-    }));
+  toggleSidebar = (isOpen: boolean) => {
+    this.setState({ isSidebarOpen: isOpen });
   };
 
   render() {
@@ -43,9 +41,23 @@ class Layout extends Component<Props, State> {
 
     return (
       <div className="app-wrapper">
-        <Header toggleSidebar={this.toggleSidebar} />
-        <Sidebar isOpen={isSidebarOpen} toggleSidebar={this.toggleSidebar} />
-        <div className="app-content">
+        <ConnectedSidebar
+          isOpen={isSidebarOpen}
+          toggleSidebar={this.toggleSidebar}
+        />
+        <div
+          className={cx(
+            'app-content',
+            isSidebarOpen
+              ? 'app-content--sidebar-open'
+              : 'app-content--sidebar-closed'
+          )}
+        >
+          <Header
+            isSidebarOpen={isSidebarOpen}
+            toggleSidebar={this.toggleSidebar}
+          />
+
           <Route
             {...rest}
             render={(matchProps: Props): ComponentType<*> | Element<*> => (
@@ -63,8 +75,8 @@ class Layout extends Component<Props, State> {
               <Comp {...matchProps} />
             )}
           />
+          <Footer />
         </div>
-        <Footer />
       </div>
     );
   }

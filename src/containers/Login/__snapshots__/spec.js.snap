@@ -8,6 +8,7 @@ exports[`Login container should render the login container 1`] = `
     Login to continue:
   </p>
   <Button
+    className=""
     onClick={[Function]}
   >
     Login

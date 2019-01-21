@@ -1,5 +1,93 @@
 @import '~styles/resources.scss';
 
+// Main
 .app-sidebar {
-  border: 1px solid $color-black;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  position: fixed;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &__header {
+    @include fontKarla;
+    background-color: rgb(3, 169, 244);
+    color: white;
+    padding: 16px;
+
+    &__close {
+      float: right;
+      border: none;
+      background-color: rgb(3, 169, 244);
+      color: white;
+
+      &__icon {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__user-block {
+    @include fontMontserrat;
+    padding: 10px;
+  }
+
+  &__separator {
+    margin: 8px 14px;
+    height: 1px;
+    background-color: $color-light-gray;
+  }
+
+  &__item-list {
+    @include fontMontserrat;
+    list-style-type: none;
+    padding: 10px;
+
+    &__item {
+      a {
+        display: block;
+        padding: 16px 0;
+        color: rgb(117, 117, 117);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Visibility
+.app-sidebar--open {
+  width: 250px;
+  transition: width 0.5s;
+  animation: animateleft 0.5s;
+}
+
+.app-sidebar--closed {
+  width: 0;
+  transition: width 0.5s;
+  animation: animateright 0.5s;
+}
+
+// Animations
+@keyframes animateleft{
+  from {
+    left: -300px;
+    display: none;
+  }
+  to {
+    left: 0;
+    display: block;
+  }
+}
+
+@keyframes animateright{
+  from {
+    left: 0;
+    display: block;
+  }
+  to {
+    left: -300px;
+    display: none;
+  }
 }
