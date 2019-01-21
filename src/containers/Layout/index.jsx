@@ -2,10 +2,11 @@
 import React, { Component } from 'react';
 import type { ComponentType, Element } from 'react';
 import { Route, withRouter } from 'react-router-dom';
+import cx from 'classnames';
 // components
 import Header from 'containers/Layout/Header';
 import Footer from 'containers/Layout/Footer';
-import Sidebar from 'containers/Layout/Sidebar';
+import ConnectedSidebar from 'containers/Layout/Sidebar';
 import LeftSection from 'atoms/HeaderSections/LeftSection';
 import RightSection from 'atoms/HeaderSections/RightSection';
 // mobx
@@ -32,11 +33,8 @@ class Layout extends Component<Props, State> {
     isSidebarOpen: false
   };
 
-  toggleSidebar = () => {
-    this.setState((state: State) => ({
-      ...state,
-      isSidebarOpen: !state.isSidebarOpen
-    }));
+  toggleSidebar = (isOpen: boolean) => {
+    this.setState({ isSidebarOpen: isOpen });
   };
 
   render() {
@@ -45,41 +43,53 @@ class Layout extends Component<Props, State> {
 
     return (
       <div className="app-wrapper">
-        <Header
-          left={
-            <LeftSection
-              onClickMenu={this.toggleSidebar}
-              onClickProfile={this.toggleSidebar}
-            />
-          }
-          right={
-            <RightSection
-              onClickSettings={this.toggleSidebar}
-              onClickProfile={this.toggleSidebar}
-            />
-          }
+        <ConnectedSidebar
+          isOpen={isSidebarOpen}
+          toggleSidebar={this.toggleSidebar}
         />
-        <Sidebar isOpen={isSidebarOpen} toggleSidebar={this.toggleSidebar} />
-        <div className="app-content">
-          <Route
-            {...rest}
-            render={(matchProps: Props): ComponentType<*> | Element<*> => (
-              // auth.isLoggedIn ? (
-              //   <Comp {...matchProps} />
-              // ) : (
-              //   <Redirect
-              //     to={{
-              //       pathname: '/login',
-              //       state: { from: location }
-              //     }}
-              //   />
-              // )
-
-              <Comp {...matchProps} />
-            )}
+        <div
+          className={cx(
+            'app-content',
+            isSidebarOpen
+              ? 'app-content--sidebar-open'
+              : 'app-content--sidebar-closed'
+          )}
+        >
+          <Header
+            left={
+              <LeftSection
+                onClickMenu={this.toggleSidebar}
+                onClickProfile={this.toggleSidebar}
+              />
+            }
+            right={
+              <RightSection
+                onClickSettings={this.toggleSidebar}
+                onClickProfile={this.toggleSidebar}
+              />
+            }
           />
+          <div className="app-content">
+            <Route
+              {...rest}
+              render={(matchProps: Props): ComponentType<*> | Element<*> => (
+                // auth.isLoggedIn ? (
+                //   <Comp {...matchProps} />
+                // ) : (
+                //   <Redirect
+                //     to={{
+                //       pathname: '/login',
+                //       state: { from: location }
+                //     }}
+                //   />
+                // )
+
+                <Comp {...matchProps} />
+              )}
+            />
+            <Footer />
+          </div>
         </div>
-        <Footer />
       </div>
     );
   }

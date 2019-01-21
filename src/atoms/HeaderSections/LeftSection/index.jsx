@@ -5,8 +5,8 @@ import Logo from 'atoms/Logo';
 import 'atoms/HeaderSections/LeftSection/style.scss';
 
 type Props = {
-  onClickMenu: (e: SyntheticKeyboardEvent<*>) => void,
-  onClickProfile: (e: SyntheticKeyboardEvent<*>) => void
+  onClickMenu: (isOpen: boolean) => void,
+  onClickProfile: (isOpen: boolean) => void
 };
 
 function LeftSection({

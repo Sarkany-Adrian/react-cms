@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import cx from 'classnames';
 
 import Button from 'atoms/Button';
 
@@ -7,10 +8,18 @@ const onClick = jest.fn();
 
 describe('Button atom', () => {
   it('should render the button', () => {
-    const wrapper = shallow(<Button onClick={onClick}>Test</Button>);
+    const wrapper = shallow(
+      <Button onClick={onClick} className="test-class">
+        Test
+      </Button>
+    );
     expect(
       wrapper.equals(
-        <button type="button" onClick={onClick}>
+        <button
+          type="button"
+          onClick={onClick}
+          className={cx('button-atom', 'test-class')}
+        >
           Test
         </button>
       )

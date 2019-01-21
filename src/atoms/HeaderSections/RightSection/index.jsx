@@ -3,8 +3,8 @@ import React from 'react';
 import 'atoms/HeaderSections/RightSection/style.scss';
 
 type Props = {
-  onClickSettings: (e: SyntheticKeyboardEvent<*>) => void,
-  onClickProfile: (e: SyntheticKeyboardEvent<*>) => void
+  onClickSettings: (isOpen: boolean) => void,
+  onClickProfile: (isOpen: boolean) => void
 };
 
 function RightSection({
