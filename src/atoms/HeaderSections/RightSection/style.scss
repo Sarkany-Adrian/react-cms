@@ -1,0 +1,16 @@
+.right-section {
+  height: 50px;
+  &__profile,
+  &__settings {
+    width: 50%;
+  }
+  &__settings {
+    text-align: right;
+    &__button {
+      margin-right: 10px;
+    }
+  }
+  &__profile__button {
+    margin-left: 10px;
+  }
+}

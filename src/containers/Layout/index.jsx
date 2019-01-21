@@ -7,6 +7,8 @@ import cx from 'classnames';
 import Header from 'containers/Layout/Header';
 import Footer from 'containers/Layout/Footer';
 import ConnectedSidebar from 'containers/Layout/Sidebar';
+import LeftSection from 'atoms/HeaderSections/LeftSection';
+import RightSection from 'atoms/HeaderSections/RightSection';
 // mobx
 import { observer, inject } from 'mobx-react';
 // style
@@ -54,28 +56,39 @@ class Layout extends Component<Props, State> {
           )}
         >
           <Header
-            isSidebarOpen={isSidebarOpen}
-            toggleSidebar={this.toggleSidebar}
+            left={
+              <LeftSection
+                onClickMenu={this.toggleSidebar}
+                onClickProfile={this.toggleSidebar}
+              />
+            }
+            right={
+              <RightSection
+                onClickSettings={this.toggleSidebar}
+                onClickProfile={this.toggleSidebar}
+              />
+            }
           />
+          <div className="app-content">
+            <Route
+              {...rest}
+              render={(matchProps: Props): ComponentType<*> | Element<*> => (
+                // auth.isLoggedIn ? (
+                //   <Comp {...matchProps} />
+                // ) : (
+                //   <Redirect
+                //     to={{
+                //       pathname: '/login',
+                //       state: { from: location }
+                //     }}
+                //   />
+                // )
 
-          <Route
-            {...rest}
-            render={(matchProps: Props): ComponentType<*> | Element<*> => (
-              // auth.isLoggedIn ? (
-              //   <Comp {...matchProps} />
-              // ) : (
-              //   <Redirect
-              //     to={{
-              //       pathname: '/login',
-              //       state: { from: location }
-              //     }}
-              //   />
-              // )
-
-              <Comp {...matchProps} />
-            )}
-          />
-          <Footer />
+                <Comp {...matchProps} />
+              )}
+            />
+            <Footer />
+          </div>
         </div>
       </div>
     );
