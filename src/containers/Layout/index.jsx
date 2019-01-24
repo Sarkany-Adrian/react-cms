@@ -9,6 +9,7 @@ import Footer from 'containers/Layout/Footer';
 import ConnectedSidebar from 'containers/Layout/Sidebar';
 import LeftSection from 'atoms/HeaderSections/LeftSection';
 import RightSection from 'atoms/HeaderSections/RightSection';
+import ConnectedModal from 'components/Modal';
 // mobx
 import { observer, inject } from 'mobx-react';
 // style
@@ -43,9 +44,11 @@ class Layout extends Component<Props, State> {
 
     return (
       <div className="app-wrapper">
+        <ConnectedModal />
         <ConnectedSidebar
           isOpen={isSidebarOpen}
           toggleSidebar={this.toggleSidebar}
+          disableOnClickOutside={!isSidebarOpen}
         />
         <div
           className={cx(
