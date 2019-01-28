@@ -90,8 +90,17 @@ class Layout extends Component<Props, State> {
                 <Comp {...matchProps} />
               )}
             />
-            <Footer />
           </div>
+          <Footer>
+            <div>Logo</div>
+            <div>
+              <ul>
+                <li>Discover</li>
+                <li>Contact</li>
+                <li>About us</li>
+              </ul>
+            </div>
+          </Footer>
         </div>
       </div>
     );
