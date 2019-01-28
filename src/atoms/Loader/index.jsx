@@ -2,7 +2,7 @@
 import React from 'react';
 import cx from 'classnames';
 // Style
-import './loader-style.scss';
+import './style.scss';
 // Types
 import type { LoaderInterface } from 'declarations/loader';
 

@@ -1,16 +1,17 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
+import type { ComponentType } from 'react';
 // Types
 import type { TSize } from 'declarations/loader';
 // Components
-import Loader from '../Atom';
+import Loader from 'atoms/Loader';
 
 type Props = {
   isLoading: boolean
 };
 
 function WithLoader(size?: TSize = 'large') {
-  return function target(WrappedComponent: React.ComponentType<*>) {
+  return function target(WrappedComponent: ComponentType<*>) {
     return class extends React.Component<Props> {
       render() {
         const { isLoading } = this.props;

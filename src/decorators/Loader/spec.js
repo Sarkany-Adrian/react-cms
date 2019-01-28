@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Login from 'containers/Login';
+import Loader from 'atoms/Loader';
 import WithLoader from './index';
-import Loader from '../Atom';
 
 const LoginWithLoader = WithLoader()(Login);
 
