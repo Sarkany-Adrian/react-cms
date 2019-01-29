@@ -1,14 +1,14 @@
 // @flow
-import React, { Component, cloneElement } from 'react';
+import React, { Component } from 'react';
 import onClickOutside from 'react-onclickoutside';
-import { Modal as ModalInterface } from 'declarations/modal';
+import type { ModalInterface } from 'declarations/modal';
 import 'components/Modal/style.scss';
 
-type Props = {
+type TProps = {
   modal: ModalInterface
 };
 
-export class ModalContainer extends Component<Props> {
+export class ModalContainer extends Component<TProps> {
   // used by on click outside wrapper
   handleClickOutside = () => {
     const { modal } = this.props;
@@ -17,14 +17,13 @@ export class ModalContainer extends Component<Props> {
 
   render() {
     const { modal } = this.props;
+    const { component: ModalComponent, toggleVisibility } = modal;
     return (
       <div className="app-modal__container">
         <div className="app-modal__container__content">
-          {modal &&
-            modal.component &&
-            cloneElement(modal.component, {
-              toggleVisibility: modal.toggleVisibility
-            })}
+          {ModalComponent && (
+            <ModalComponent toggleVisibility={toggleVisibility} />
+          )}
         </div>
       </div>
     );

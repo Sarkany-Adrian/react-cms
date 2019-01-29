@@ -1,10 +1,9 @@
 // @flow
+import type { ComponentType } from 'react';
 
-export type TComponent = ?React$Element<*>;
-
-export interface Modal {
-  toggleVisibility(component: TComponent): void;
-  open(component: TComponent): void;
+export interface ModalInterface {
+  toggleVisibility(component: ComponentType<*>): void;
+  open(component: ComponentType<*>): void;
   close(): void;
-  component: TComponent;
+  component: ?ComponentType<*>;
 }

@@ -13,6 +13,8 @@ import AppError from 'components/AppError';
 import NotFound from 'containers/NotFound';
 // Error page
 import Error from 'containers/Error';
+// Library page
+import ConnectedLibrary from 'containers/Library';
 // mobx - use strict
 import { configure } from 'mobx';
 // enforces a workflow where only actions can modify the state
@@ -28,6 +30,7 @@ function App(): React$Element<*> {
         <Layout exact path="/" component={Home} />
         {/* Error page */}
         <Layout path="/error" component={Error} />
+        <Layout path="/library" component={ConnectedLibrary} />
         {/* Login page - separate, as it doesn't share the layout */}
         <Route path="/login" component={Login} />
         {/* 404 */}
