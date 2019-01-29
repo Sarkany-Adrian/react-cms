@@ -1,13 +1,4 @@
-@import './variables/variables';
 @import '~bootstrap-scss';
-
-// define mixins here for now
-// if this file will grow, move them to
-// a separate folder, like variables
-@mixin fontMontserrat {
-  font-family: 'Montserrat', sans-serif;
-}
-
-@mixin fontKarla {
-  font-family: 'Karla', sans-serif;
-}
+@import './variables/variables';
+@import './variables/mixins';
+@import './variables/fonts';

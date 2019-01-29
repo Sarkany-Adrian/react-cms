@@ -1,9 +1,11 @@
 // @flow
 import React from 'react';
+// style
+import './style.scss';
 
 function Home(): React$Element<'div'> {
   return (
-    <div>
+    <div className="home-wrapper">
       <p>home page</p>
     </div>
   );

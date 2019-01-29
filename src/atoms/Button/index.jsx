@@ -1,27 +1,33 @@
 // @flow
 import React from 'react';
 import cx from 'classnames';
-import './styles.scss';
+// theme
+import { ThemeProvider } from 'styled-components';
+import { SiteThemeContext } from 'contexts/theme';
+// style
+import StyledButton from './style';
 
 type Props = {
   children: React$Element<*> | string,
-  onClick: (e: SyntheticKeyboardEvent<*>) => void,
+  onClick: (e: any) => void,
   className?: string
 };
 
-function Button({
-  children,
-  onClick,
-  className
-}: Props): React$Element<'button'> {
+function Button({ children, onClick, className }: Props): React$Element<*> {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={cx('button-atom', className)}
-    >
-      {children}
-    </button>
+    <SiteThemeContext.Consumer>
+      {(props: any) => (
+        <ThemeProvider theme={props.theme}>
+          <StyledButton
+            type="button"
+            onClick={onClick}
+            className={cx('button-atom', className)}
+          >
+            {children}
+          </StyledButton>
+        </ThemeProvider>
+      )}
+    </SiteThemeContext.Consumer>
   );
 }
 

@@ -2,57 +2,22 @@
 
 // Main
 .app-sidebar {
-  height: 100%;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  position: fixed;
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
-  box-sizing: border-box;
-  overflow: hidden;
-
   &__header {
     @include fontKarla;
-    background-color: rgb(3, 169, 244);
-    color: white;
-    padding: 16px;
 
     &__close {
-      float: right;
-      border: none;
-      background-color: rgb(3, 169, 244);
-      color: white;
-
-      &__icon {
-        font-size: 16px;
-      }
+      position: absolute;
+      right: 0;
+      margin-right: 5px;
+      color: $color-white;
+      font-size: 16px;
     }
-  }
-
-  &__user-block {
-    @include fontMontserrat;
-    padding: 10px;
-  }
-
-  &__separator {
-    margin: 8px 14px;
-    height: 1px;
-    background-color: $color-light-gray;
   }
 
   &__item-list {
     @include fontMontserrat;
     list-style-type: none;
     padding: 10px;
-
-    &__item {
-      a {
-        display: block;
-        padding: 16px 0;
-        color: rgb(117, 117, 117);
-        text-decoration: none;
-      }
-    }
   }
 }
 
@@ -70,7 +35,7 @@
 }
 
 // Animations
-@keyframes animateleft{
+@keyframes animateleft {
   from {
     left: -300px;
     display: none;
@@ -81,7 +46,7 @@
   }
 }
 
-@keyframes animateright{
+@keyframes animateright {
   from {
     left: 0;
     display: block;
