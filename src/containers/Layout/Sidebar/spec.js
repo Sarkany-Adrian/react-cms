@@ -1,39 +1,50 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { shallow, mount } from 'enzyme';
 import { Sidebar } from 'containers/Layout/Sidebar';
-
-const toggleSidebar = jest.fn();
+import {
+  StyledSidebar,
+  StyledSidebarHeader,
+  StyledMenuItem
+} from 'containers/Layout/Sidebar/style';
 
 describe('App Sidebar', () => {
-  const defaultProps = {
+  const mockedProps = {
     isOpen: true,
-    toggleSidebar
+    toggleSidebar: jest.fn()
   };
 
-  // TODO: momentary fix, will come back with a solution for this
-  // eslint-disable-next-line flowtype/require-parameter-type
-  const renderComponent = (props = defaultProps) =>
-    shallow(<Sidebar {...props} />);
-
-  // cleanup before each test
-  beforeEach(() => {
-    toggleSidebar.mockReset();
-  });
-
-  it('when the sidebar is open, renders and matches snapshot', () => {
-    const wrapper = renderComponent();
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('when the sidebar is closed, renders and matches snapshot', () => {
-    const wrapper = renderComponent({ isOpen: false, toggleSidebar });
-    expect(wrapper).toMatchSnapshot();
-  });
-
   it('should call toggleSidebar', () => {
-    const wrapper = renderComponent();
+    const wrapper = shallow(<Sidebar {...mockedProps} />);
     wrapper.instance().handleClickOutside();
-    expect(toggleSidebar).toHaveBeenCalledTimes(1);
+    expect(mockedProps.toggleSidebar).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('Styled components', () => {
+  const theme = {
+    font: {
+      fontBody: 'test'
+    },
+    colors: {
+      primary: 'red'
+    },
+    baseColors: {
+      lightBlue: 'blue'
+    }
+  };
+
+  it('Should render StyledSidebar', () => {
+    const wrapper = mount(<StyledSidebar theme={theme} />);
+    expect(wrapper.find('aside').exists()).toBe(true);
+  });
+
+  it('Should render StyledSidebarHeader', () => {
+    const wrapper = mount(<StyledSidebarHeader theme={theme} />);
+    expect(wrapper.find('div').exists()).toBe(true);
+  });
+
+  it('Should render StyledMenuItem', () => {
+    const wrapper = mount(<StyledMenuItem theme={theme} />);
+    expect(wrapper.find('li').exists()).toBe(true);
   });
 });
