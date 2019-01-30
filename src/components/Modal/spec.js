@@ -5,7 +5,7 @@ import { ModalContainer } from 'components/Modal/ModalContainer';
 
 const TestComponent = () => <div>test</div>;
 const mockedModal = {
-  component: <TestComponent />,
+  component: TestComponent,
   close: jest.fn()
 };
 
@@ -22,7 +22,7 @@ describe('Modal', () => {
 
 describe('ModalContainer', () => {
   it('Should render ModalContainer', () => {
-    const wrapper = shallow(<ModalContainer />);
+    const wrapper = shallow(<ModalContainer modal={mockedModal} />);
     expect(wrapper.find('.app-modal__container').exists()).toBe(true);
   });
 

@@ -2,15 +2,15 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import ConnectedModal from 'components/Modal/ModalContainer';
-import { Modal as ModalInterface } from 'declarations/modal';
+import type { ModalInterface } from 'declarations/modal';
 import Portal from 'atoms/Portal';
 import cx from 'classnames';
 
-type Props = {
+type TProps = {
   modal: ModalInterface
 };
 
-export const Modal = ({ modal }: Props): React$Element<*> => {
+export const Modal = ({ modal }: TProps): React$Element<*> => {
   const body = document.getElementsByTagName('body')[0];
   body.style.overflow = modal && modal.component ? 'hidden' : 'auto';
 

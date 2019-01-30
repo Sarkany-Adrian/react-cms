@@ -77,6 +77,17 @@ exports[`App Sidebar when the sidebar is closed, renders and matches snapshot 1`
         page2
       </Link>
     </li>
+    <li
+      className="app-sidebar__item-list__item"
+      key="3"
+    >
+      <Link
+        replace={false}
+        to="/library"
+      >
+        Library
+      </Link>
+    </li>
   </ul>
 </aside>
 `;
@@ -156,6 +167,17 @@ exports[`App Sidebar when the sidebar is open, renders and matches snapshot 1`] 
         to="/page2"
       >
         page2
+      </Link>
+    </li>
+    <li
+      className="app-sidebar__item-list__item"
+      key="3"
+    >
+      <Link
+        replace={false}
+        to="/library"
+      >
+        Library
       </Link>
     </li>
   </ul>

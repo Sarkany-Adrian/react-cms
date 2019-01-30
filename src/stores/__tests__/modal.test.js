@@ -9,9 +9,14 @@ describe('Modal store', () => {
 
   const TestComponent = () => <div>test</div>;
 
-  it('Sould set the components value to be <TestComponent/>.', () => {
+  it('Sould set the components value to be TestComponent.', () => {
+    Modal.open(TestComponent);
+    expect(Modal.component).toEqual(TestComponent);
+  });
+
+  it('Sould not set the components value to be TestComponent.', () => {
     Modal.open(<TestComponent />);
-    expect(Modal.component).toEqual(<TestComponent />);
+    expect(Modal.component).not.toEqual(<TestComponent />);
   });
 
   it('Should set the components value to be undefined.', () => {
@@ -19,8 +24,8 @@ describe('Modal store', () => {
     expect(Modal.component).toBeUndefined();
   });
 
-  it('Should set the components value to be <TestComponent/>.', () => {
-    Modal.toggleVisibility(<TestComponent />);
-    expect(Modal.component).toEqual(<TestComponent />);
+  it('Should set the components value to be TestComponent.', () => {
+    Modal.toggleVisibility(TestComponent);
+    expect(Modal.component).toEqual(TestComponent);
   });
 });
