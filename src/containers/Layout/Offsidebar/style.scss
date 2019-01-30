@@ -1,0 +1,43 @@
+@import '~styles/resources.scss';
+
+.app-offsidebar {
+  @include fontMontserrat;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: $color-white;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 1;
+  transition: right 0.5s;
+
+  &--closed {
+    right: -250px;
+  }
+
+  &--open {
+    right: 0;
+  }
+
+  &__header {
+    background: $color-blue;
+    padding: 16px;
+    text-align: right;
+
+    &__close {
+      float: left;
+      background: $color-blue;
+      border: none;
+
+      &__icon {
+        color: $color-white;
+      }
+    }
+  }
+
+  &__separator {
+    margin: 8px 14px;
+    height: 1px;
+    background-color: $color-light-gray;
+  }
+}
