@@ -15,7 +15,7 @@ function RightSection({ onClickProfile }: TProps): React$Element<'div'> {
   return (
     <div className="right-section d-flex align-items-center">
       <Button
-        className="right-section__settings__button"
+        className="right-section__profile__button"
         onClick={onClickProfile}
         primary
       >

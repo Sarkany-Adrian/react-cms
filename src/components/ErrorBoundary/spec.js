@@ -38,7 +38,7 @@ describe('Error Boundary component', () => {
   it('triggers component did catch lifecycle method when an error is received', () => {
     const defaultProps = {
       children: <span>test children</span>,
-      FallbackComponent: AppError
+      FallbackComponent: AppError,
     };
 
     const wrapper = mount(
@@ -50,5 +50,23 @@ describe('Error Boundary component', () => {
     const error = new Error('hi!');
     wrapper.find(ProblemChild).simulateError(error);
     expect(wrapper.state('error')).toEqual(error);
+  });
+
+  it('should invoke props.onError method.', () => {
+    const defaultProps = {
+      children: <span>test children</span>,
+      FallbackComponent: AppError,
+      onError: jest.fn()
+    };
+
+    const wrapper = mount(
+      <ErrorBoundary {...defaultProps}>
+        <ProblemChild />
+      </ErrorBoundary>
+    );
+
+    const error = new Error('hi!');
+    wrapper.find(ProblemChild).simulateError(error);
+    expect(defaultProps.onError).toHaveBeenCalled();
   });
 });

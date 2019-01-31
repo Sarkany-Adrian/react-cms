@@ -70,23 +70,7 @@ class Layout extends Component<Props, State> {
             }
           />
           <div className="app-content">
-            <Route
-              {...rest}
-              render={(matchProps: Props): ComponentType<*> | Element<*> => (
-                // auth.isLoggedIn ? (
-                //   <Comp {...matchProps} />
-                // ) : (
-                //   <Redirect
-                //     to={{
-                //       pathname: '/login',
-                //       state: { from: location }
-                //     }}
-                //   />
-                // )
-
-                <Comp {...matchProps} />
-              )}
-            />
+            <Route {...rest} component={Comp} />
             <Footer />
           </div>
         </div>

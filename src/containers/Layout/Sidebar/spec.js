@@ -7,6 +7,18 @@ import {
   StyledMenuItem
 } from 'containers/Layout/Sidebar/style';
 
+const theme = {
+  font: {
+    fontBody: 'test'
+  },
+  colors: {
+    primary: 'red'
+  },
+  baseColors: {
+    lightBlue: 'blue'
+  }
+};
+
 describe('App Sidebar', () => {
   const mockedProps = {
     isOpen: true,
@@ -21,18 +33,6 @@ describe('App Sidebar', () => {
 });
 
 describe('Styled components', () => {
-  const theme = {
-    font: {
-      fontBody: 'test'
-    },
-    colors: {
-      primary: 'red'
-    },
-    baseColors: {
-      lightBlue: 'blue'
-    }
-  };
-
   it('Should render StyledSidebar', () => {
     const wrapper = mount(<StyledSidebar theme={theme} />);
     expect(wrapper.find('aside').exists()).toBe(true);

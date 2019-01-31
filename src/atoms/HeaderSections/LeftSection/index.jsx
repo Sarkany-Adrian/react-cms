@@ -10,15 +10,11 @@ import logoImg from 'images/logo_placeholder.png';
 // styles
 import 'atoms/HeaderSections/LeftSection/style.scss';
 
-type Props = {
-  onClickMenu: (isOpen: boolean) => void,
-  onClickProfile: (isOpen: boolean) => void
+type TProps = {
+  onClickMenu: (isOpen: boolean) => void
 };
 
-function LeftSection({
-  onClickMenu,
-  onClickProfile
-}: Props): React$Element<'div'> {
+function LeftSection({ onClickMenu }: TProps): React$Element<'div'> {
   return (
     <div className="left-section d-flex align-items-center">
       <div className="left-section__logo">
@@ -26,10 +22,7 @@ function LeftSection({
       </div>
       <div className="left-section__menu">
         <Button className="left-section__menu__button" onClick={onClickMenu}>
-          <FontAwesomeIcon
-            icon={faBars}
-            // className="app-sidebar__header__close__icon"
-          />
+          <FontAwesomeIcon icon={faBars} />
         </Button>
       </div>
     </div>
