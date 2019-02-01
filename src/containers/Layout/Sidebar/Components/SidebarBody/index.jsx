@@ -27,7 +27,7 @@ function SidebarBody({ isOpen, onClick }: TProps) {
         <Button className="app-sidebar__header__close" onClick={onClick}>
           <FontAwesomeIcon
             icon={faTimes}
-            className="app-sidebar__header__close__icon"
+            className="app-sidebar__header__close__icon ignorethis"
           />
         </Button>
       </StyledSidebarHeader>

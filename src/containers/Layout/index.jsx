@@ -37,12 +37,24 @@ class Layout extends Component<Props, State> {
     isOffsidebarOpen: false
   };
 
-  toggleSidebar = (isOpen: boolean) => {
+  HOCtoggleSidebar = (isOpen: boolean) => {
     this.setState({ isSidebarOpen: isOpen });
   };
 
-  toggleOffsidebar = (isOpen: boolean) => {
+  HOCtoggleOffsidebar = (isOpen: boolean) => {
     this.setState({ isOffsidebarOpen: isOpen });
+  };
+
+  toggleSidebar = () => {
+    this.setState((state: State) => ({
+      isSidebarOpen: !state.isSidebarOpen
+    }));
+  };
+
+  toggleOffsidebar = () => {
+    this.setState((state: State) => ({
+      isOffsidebarOpen: !state.isOffsidebarOpen
+    }));
   };
 
   render() {
@@ -55,12 +67,16 @@ class Layout extends Component<Props, State> {
         <ConnectedSidebar
           isOpen={isSidebarOpen}
           toggleSidebar={this.toggleSidebar}
+          HOCtoggleSidebar={this.HOCtoggleSidebar}
           disableOnClickOutside={!isSidebarOpen}
+          outsideClickIgnoreClass="ignorethis"
         />
         <ConnectedOffsidebar
           isOpen={isOffsidebarOpen}
           toggleOffsidebar={this.toggleOffsidebar}
+          HOCtoggleOffsidebar={this.HOCtoggleOffsidebar}
           disableOnClickOutside={!isOffsidebarOpen}
+          outsideClickIgnoreClass="ignorethis"
         />
         <div
           className={cx(
@@ -74,13 +90,13 @@ class Layout extends Component<Props, State> {
             left={
               <LeftSection
                 onClickMenu={this.toggleSidebar}
-                onClickProfile={this.toggleSidebar}
+                // onClickProfile={this.toggleSidebar}
               />
             }
             right={
               <RightSection
-                onClickSettings={this.toggleOffsidebar}
-                onClickProfile={this.toggleSidebar}
+                // onClickSettings={this.toggleOffsidebar}
+                onClickProfile={this.toggleOffsidebar}
               />
             }
           />
