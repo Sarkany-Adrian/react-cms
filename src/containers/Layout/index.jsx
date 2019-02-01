@@ -7,6 +7,7 @@ import cx from 'classnames';
 import Header from 'containers/Layout/Header';
 import Footer from 'containers/Layout/Footer';
 import ConnectedSidebar from 'containers/Layout/Sidebar';
+import ConnectedOffsidebar from 'containers/Layout/Offsidebar';
 import LeftSection from 'atoms/HeaderSections/LeftSection';
 import RightSection from 'atoms/HeaderSections/RightSection';
 import ConnectedModal from 'components/Modal';
@@ -24,23 +25,29 @@ type Props = {
 };
 
 type State = {
-  isSidebarOpen: boolean
+  isSidebarOpen: boolean,
+  isOffsidebarOpen: boolean
 };
 
 @inject(['auth'])
 @observer
 class Layout extends Component<Props, State> {
   state = {
-    isSidebarOpen: false
+    isSidebarOpen: false,
+    isOffsidebarOpen: false
   };
 
   toggleSidebar = (isOpen: boolean) => {
     this.setState({ isSidebarOpen: isOpen });
   };
 
+  toggleOffsidebar = (isOpen: boolean) => {
+    this.setState({ isOffsidebarOpen: isOpen });
+  };
+
   render() {
     const { component: Comp, auth, location, ...rest } = this.props;
-    const { isSidebarOpen } = this.state;
+    const { isSidebarOpen, isOffsidebarOpen } = this.state;
 
     return (
       <div className="app-wrapper">
@@ -49,6 +56,11 @@ class Layout extends Component<Props, State> {
           isOpen={isSidebarOpen}
           toggleSidebar={this.toggleSidebar}
           disableOnClickOutside={!isSidebarOpen}
+        />
+        <ConnectedOffsidebar
+          isOpen={isOffsidebarOpen}
+          toggleOffsidebar={this.toggleOffsidebar}
+          disableOnClickOutside={!isOffsidebarOpen}
         />
         <div
           className={cx(
@@ -67,7 +79,7 @@ class Layout extends Component<Props, State> {
             }
             right={
               <RightSection
-                onClickSettings={this.toggleSidebar}
+                onClickSettings={this.toggleOffsidebar}
                 onClickProfile={this.toggleSidebar}
               />
             }
