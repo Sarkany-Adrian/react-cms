@@ -38,7 +38,7 @@ describe('Error Boundary component', () => {
   it('triggers component did catch lifecycle method when an error is received', () => {
     const defaultProps = {
       children: <span>test children</span>,
-      FallbackComponent: AppError,
+      FallbackComponent: AppError
     };
 
     const wrapper = mount(

@@ -24,7 +24,7 @@ describe('ThemeSelect', () => {
       target: {
         value: 'theme2'
       }
-    }
+    };
     select.simulate('change', event);
     expect(context.handleThemeChange).toHaveBeenCalled();
   });

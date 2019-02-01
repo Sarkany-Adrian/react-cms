@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import type { ComponentType, Element } from 'react';
+import type { ComponentType } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import cx from 'classnames';
 // components
