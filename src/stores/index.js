@@ -1,8 +1,10 @@
 // @flow
 import auth from './auth';
+import modal from './modal';
 
 const stores = {
-  auth
+  auth,
+  modal
 };
 
 export default stores;
