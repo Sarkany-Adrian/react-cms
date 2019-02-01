@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import type { ComponentType, Element } from 'react';
+import type { ComponentType } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import cx from 'classnames';
 // components
@@ -85,34 +85,9 @@ class Layout extends Component<Props, State> {
             }
           />
           <div className="app-content">
-            <Route
-              {...rest}
-              render={(matchProps: Props): ComponentType<*> | Element<*> => (
-                // auth.isLoggedIn ? (
-                //   <Comp {...matchProps} />
-                // ) : (
-                //   <Redirect
-                //     to={{
-                //       pathname: '/login',
-                //       state: { from: location }
-                //     }}
-                //   />
-                // )
-
-                <Comp {...matchProps} />
-              )}
-            />
+            <Route {...rest} component={Comp} />
+            <Footer />
           </div>
-          <Footer>
-            <div>Logo</div>
-            <div>
-              <ul>
-                <li>Discover</li>
-                <li>Contact</li>
-                <li>About us</li>
-              </ul>
-            </div>
-          </Footer>
         </div>
       </div>
     );

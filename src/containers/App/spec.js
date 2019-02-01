@@ -7,6 +7,7 @@ import { Provider } from 'mobx-react';
 import stores from 'stores';
 import ErrorBoundary from 'components/ErrorBoundary';
 import AppError from 'components/AppError';
+import SiteThemeProvider from 'contexts/theme';
 
 describe('App container', () => {
   it('Should render the App container with Layout component', () => {
@@ -19,7 +20,9 @@ describe('App container', () => {
     const wrapper = mount(
       <BrowserRouter>
         <Provider {...stores}>
-          <App />
+          <SiteThemeProvider>
+            <App />
+          </SiteThemeProvider>
         </Provider>
       </BrowserRouter>
     );

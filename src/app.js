@@ -8,6 +8,9 @@ import App from 'containers/App';
 import { Provider } from 'mobx-react';
 import stores from 'stores';
 
+// theme context
+import SiteThemeProvider from 'contexts/theme';
+
 const appContainer: HTMLElement | null =
   document && document.getElementById('root');
 
@@ -15,7 +18,9 @@ if (appContainer) {
   ReactDOM.render(
     <BrowserRouter>
       <Provider {...stores}>
-        <App />
+        <SiteThemeProvider>
+          <App />
+        </SiteThemeProvider>
       </Provider>
     </BrowserRouter>,
     appContainer

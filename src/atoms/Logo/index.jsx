@@ -14,7 +14,6 @@ type LogoType = React$Element<'span'> | React$Element<typeof Image>;
 
 function Logo({ src, alt, text, ...rest }: Props): LogoType {
   const props = omit(rest, 'src', 'alt', 'text');
-
   if (!text) return <Image src={src} alt={alt} {...props} />;
   return <span {...props}>{text}</span>;
 }

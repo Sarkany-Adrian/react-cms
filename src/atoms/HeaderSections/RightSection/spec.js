@@ -14,11 +14,4 @@ describe('RightSection atom', () => {
     wrapper.find('.right-section__profile__button').simulate('click');
     expect(onClickProfile).toHaveBeenCalled();
   });
-
-  it('Should invoke onClickSettings method', () => {
-    const onClickSettings = jest.fn();
-    const wrapper = shallow(<RightSection onClickSettings={onClickSettings} />);
-    wrapper.find('.right-section__settings__button').simulate('click');
-    expect(onClickSettings).toHaveBeenCalled();
-  });
 });

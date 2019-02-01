@@ -5,7 +5,7 @@ import { chunk } from 'helpers/array';
 import './style.scss';
 
 type TProps = {
-  children: Node,
+  children?: Node,
   rows?: number
 };
 
@@ -30,7 +30,8 @@ function Footer({ children, rows }: TProps): React$Element<'div'> {
 }
 
 Footer.defaultProps = {
-  rows: 1
+  rows: 1,
+  children: []
 };
 
 export default Footer;

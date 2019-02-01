@@ -1,19 +1,13 @@
 // @flow
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
-import cx from 'classnames';
 import onClickOutside from 'react-onclickoutside';
-// constants
-import sidebarLinks from 'constants/sidebarLinks';
+// theme
+import { ThemeProvider } from 'styled-components';
+import { SiteThemeContext } from 'contexts/theme';
 // components
-import Button from 'atoms/Button';
-// types
-import type { SidebarLink } from 'declarations/sidebar';
+import SidebarBody from 'containers/Layout/Sidebar/Components/SidebarBody';
 // style
 import './style.scss';
-// fa
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 type Props = {
   isOpen: boolean,
@@ -21,7 +15,6 @@ type Props = {
 };
 
 export class Sidebar extends PureComponent<Props> {
-  // used by on click outside wrapper
   handleClickOutside = () => {
     const { toggleSidebar } = this.props;
     toggleSidebar(false);
@@ -29,38 +22,15 @@ export class Sidebar extends PureComponent<Props> {
 
   render() {
     const { isOpen } = this.props;
+
     return (
-      <aside
-        className={cx(
-          'app-sidebar',
-          isOpen ? 'app-sidebar--open' : 'app-sidebar--closed'
+      <SiteThemeContext.Consumer>
+        {(props: any) => (
+          <ThemeProvider theme={props.theme}>
+            <SidebarBody isOpen={isOpen} onClick={this.handleClickOutside} />
+          </ThemeProvider>
         )}
-      >
-        <div className="app-sidebar__header">
-          Menu
-          <Button
-            className="app-sidebar__header__close"
-            onClick={this.handleClickOutside}
-          >
-            <FontAwesomeIcon
-              icon={faTimes}
-              className="app-sidebar__header__close__icon"
-            />
-          </Button>
-        </div>
-
-        <div className="app-sidebar__user-block">user block</div>
-
-        <div className="app-sidebar__separator" />
-
-        <ul className="app-sidebar__item-list">
-          {sidebarLinks.map((link: SidebarLink) => (
-            <li key={link.id} className="app-sidebar__item-list__item">
-              <Link to={link.path}>{link.displayName}</Link>
-            </li>
-          ))}
-        </ul>
-      </aside>
+      </SiteThemeContext.Consumer>
     );
   }
 }

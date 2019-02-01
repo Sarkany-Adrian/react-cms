@@ -17,14 +17,4 @@ describe('LeftSection atom', () => {
       .simulate('click');
     expect(onClickMenu).toHaveBeenCalled();
   });
-
-  it('Should invoke onClickProfile on button click', () => {
-    const onClickProfile = jest.fn();
-    const wrapper = shallow(<LeftSection onClickProfile={onClickProfile} />);
-    wrapper
-      .find('.left-section__menu__button')
-      .last()
-      .simulate('click');
-    expect(onClickProfile).toHaveBeenCalled();
-  });
 });

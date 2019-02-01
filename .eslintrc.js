@@ -96,6 +96,9 @@ module.exports = {
       node: {
         moduleDirectory: ['node_modules', 'src']
       }
+    },
+    flowtype: {
+      onlyFilesWithFlowAnnotation: true
     }
   }
 };

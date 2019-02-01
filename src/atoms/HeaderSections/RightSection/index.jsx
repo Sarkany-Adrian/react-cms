@@ -1,36 +1,27 @@
 // @flow
 import React from 'react';
+// atoms
+import Button from 'atoms/Button';
+import ThemeSelect from 'atoms/ThemeSelect';
+
+// styles
 import 'atoms/HeaderSections/RightSection/style.scss';
 
-type Props = {
-  onClickSettings: (isOpen: boolean) => void,
+type TProps = {
   onClickProfile: (isOpen: boolean) => void
 };
 
-function RightSection({
-  onClickSettings,
-  onClickProfile
-}: Props): React$Element<'div'> {
+function RightSection({ onClickProfile }: TProps): React$Element<'div'> {
   return (
     <div className="right-section d-flex align-items-center">
-      <div className="right-section__profile">
-        <button
-          type="button"
-          className="right-section__profile__button d-inline d-sm-none"
-          onClick={onClickProfile}
-        >
-          P
-        </button>
-      </div>
-      <div className="right-section__settings">
-        <button
-          type="button"
-          className="right-section__settings__button"
-          onClick={onClickSettings}
-        >
-          S
-        </button>
-      </div>
+      <Button
+        className="right-section__profile__button"
+        onClick={onClickProfile}
+        primary
+      >
+        Profile
+      </Button>
+      <ThemeSelect />
     </div>
   );
 }
