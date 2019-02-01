@@ -8,7 +8,6 @@ const StyledButton = styled.button`
   border: none;
   text-transform: uppercase;
   background-color: transparent;
-  text-transform: uppercase;
   border-radius: 4px;
   cursor: pointer;
   ${(props: Object) =>
