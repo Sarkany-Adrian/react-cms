@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 // components & atoms
 import Button from 'atoms/Button';
@@ -14,26 +14,34 @@ type TProps = {
   modal: ModalInterface
 };
 
-export function Library({ modal }: TProps): React$Element<'div'> {
-  return (
-    <div className="container">
-      <ImageExample />
-      <hr />
-      <InputExample />
-      <hr />
-      <LogoExample />
-      <hr />
-      <div className="row">
-        <div className="col">
-          <h1>Modal Component</h1>
-          <Button onClick={() => modal.toggleVisibility(ModalExample)}>
-            Open Modal
-          </Button>
+export class Library extends Component<TProps> {
+  onClick = () => {
+    // eslint-disable-next-line
+    console.log('test case');
+  };
+
+  render() {
+    const { modal } = this.props;
+    return (
+      <div className="container">
+        <ImageExample onClick={this.onClick} />
+        <hr />
+        <InputExample />
+        <hr />
+        <LogoExample />
+        <hr />
+        <div className="row">
+          <div className="col">
+            <h1>Modal Component</h1>
+            <Button onClick={() => modal.toggleVisibility(ModalExample)}>
+              Open Modal
+            </Button>
+          </div>
         </div>
+        <hr />
       </div>
-      <hr />
-    </div>
-  );
+    );
+  }
 }
 
 export default inject('modal')(observer(Library));

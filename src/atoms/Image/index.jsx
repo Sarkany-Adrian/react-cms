@@ -1,14 +1,28 @@
 // @flow
 import React, { PureComponent } from 'react';
+// Assets
 import errorImg from 'images/error_image.png';
 // utils
 import omit from 'lodash.omit';
+// Style
+import StyledImage from './style';
+
+// imo the commented lines give rise to unnecessary complexity both for humans and machines
+// I would like to have a discussion about this when Zsolt gets back to clarify it
 
 type Props = {
   src: string,
   alt: string,
   errorImage?: string,
-  rest?: Object
+  circle?: boolean,
+  rounded?: boolean,
+  crisp?: boolean,
+  xs?: boolean,
+  sm?: boolean,
+  md?: boolean,
+  lg?: boolean,
+  onClick?: () => void
+  // rest?: Object
 };
 
 type State = {
@@ -18,7 +32,14 @@ type State = {
 class Image extends PureComponent<Props, State> {
   static defaultProps = {
     errorImage: errorImg,
-    rest: undefined
+    circle: false,
+    rounded: false,
+    crisp: false,
+    xs: false,
+    sm: false,
+    md: false,
+    lg: false,
+    onClick: undefined
   };
 
   constructor(props: Props) {
@@ -36,8 +57,21 @@ class Image extends PureComponent<Props, State> {
   render() {
     const { alt, errorImage, ...rest } = this.props;
     const { src } = this.state;
-    const imgProps = omit(rest, 'src', 'alt', 'onError', 'errorImage');
-    return <img alt={alt} src={src} onError={this.handleError} {...imgProps} />;
+    const imgProps = omit(rest, 'src');
+
+    // const imgProps = omit(rest, 'src', 'alt', 'onError', 'errorImage');
+    // console.log('props in image', this.props);
+    // console.log('rest ', rest);
+    // console.log('imgProps', imgProps);
+
+    return (
+      <StyledImage
+        alt={alt}
+        src={src}
+        onError={this.handleError}
+        {...imgProps}
+      />
+    );
   }
 }
 

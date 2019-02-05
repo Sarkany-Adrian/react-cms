@@ -22,13 +22,13 @@ const theme = {
 describe('App Sidebar', () => {
   const mockedProps = {
     isOpen: true,
-    toggleSidebar: jest.fn()
+    HOCtoggleSidebar: jest.fn()
   };
 
   it('should call toggleSidebar', () => {
     const wrapper = shallow(<Sidebar {...mockedProps} />);
     wrapper.instance().handleClickOutside();
-    expect(mockedProps.toggleSidebar).toHaveBeenCalledTimes(1);
+    expect(mockedProps.HOCtoggleSidebar).toHaveBeenCalledTimes(1);
   });
 });
 

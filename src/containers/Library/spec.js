@@ -14,4 +14,13 @@ describe('Library container', () => {
     button.simulate('click');
     expect(mockedModal.toggleVisibility).toHaveBeenCalled();
   });
+
+  // it('Should have an onClick method', () => {
+  //   const wrapper = shallow(<Library />);
+  //   wrapper
+  //     .find('img')
+  //     .at(6)
+  //     .simulate('click');
+  //   expect(wrapper.instance().onClick).toHaveBeenCalled();
+  // });
 });
