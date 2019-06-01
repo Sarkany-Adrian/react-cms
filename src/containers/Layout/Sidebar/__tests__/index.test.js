@@ -28,7 +28,7 @@ const theme = {
 describe('App Sidebar', () => {
   const props = {
     isOpen: true,
-    toggleSidebar: jest.fn()
+    HOCtoggleSidebar: jest.fn()
   };
 
   /**
@@ -38,7 +38,8 @@ describe('App Sidebar', () => {
     const wrapper = shallow(<Sidebar {...props} />);
 
     wrapper.instance().handleClickOutside();
-    expect(props.toggleSidebar).toHaveBeenCalledTimes(1);
+
+    expect(props.HOCtoggleSidebar).toHaveBeenCalledTimes(1);
   });
 });
 

@@ -1,10 +1,16 @@
+@import '~styles/resources.scss';
+
 .right-section {
   height: 50px;
-  &__profile {
-    text-align: right;
-    width: 50%;
-    &__button {
-      margin-right: 10px;
-    }
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+
+  @include media-breakpoint-down(xs) {
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0 15px;
   }
 }

@@ -26,12 +26,15 @@ function LeftSection({ onClickMenu }: TProps): React$Element<'div'> {
    *
    */
   return (
-    <div className="left-section d-flex align-items-center">
+    <div className="left-section">
       <div className="left-section__logo">
         <Logo src={logoImg} className="left-section__logo__item" />
       </div>
       <div className="left-section__menu">
-        <Button className="left-section__menu__button" onClick={onClickMenu}>
+        <Button
+          className="left-section__menu__button ignore-react-onclickoutside"
+          onClick={onClickMenu}
+        >
           <FontAwesomeIcon icon={faBars} />
         </Button>
       </div>

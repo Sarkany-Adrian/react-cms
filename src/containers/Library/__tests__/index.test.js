@@ -13,11 +13,21 @@ const modal = {
 /**
  *
  */
-test('Should render the Library container and invoke toggleVisibility method', () => {
+test('should render the Library container', () => {
+  const wrapper = shallow(<Library modal={modal} />);
+
+  expect(wrapper.find('.container').exists()).toEqual(true);
+});
+
+/**
+ *
+ */
+test('should invoke toggleVisibility() prop by clicking on the button', () => {
   const wrapper = shallow(<Library modal={modal} />);
   const button = wrapper.find(Button);
 
   expect(button.exists()).toBe(true);
+
   button.simulate('click');
 
   expect(modal.toggleVisibility).toHaveBeenCalled();

@@ -2,28 +2,43 @@
 import React, { PureComponent } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import cx from 'classnames';
-// Components
+
+// components
 import Button from 'atoms/Button';
-// Style
+
+// style
 import './style.scss';
-// font awesome
+
+// fonts
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+// types
 type Props = {
   isOpen: boolean,
-  toggleOffsidebar: boolean => void
+  toggleOffsidebar: () => void,
+  HOCtoggleOffsidebar: boolean => void
 };
 
+/**
+ *
+ */
 export class Offsidebar extends PureComponent<Props> {
-  // used by on click outside wrapper
+  /**
+   * Used by on click outside wrapper
+   */
   handleClickOutside = () => {
-    const { toggleOffsidebar } = this.props;
-    toggleOffsidebar(false);
+    const { HOCtoggleOffsidebar } = this.props;
+    HOCtoggleOffsidebar(false);
   };
 
+  /**
+   *
+   * @returns {*}
+   */
   render() {
-    const { isOpen } = this.props;
+    const { isOpen, toggleOffsidebar } = this.props;
+
     return (
       <aside
         className={cx(
@@ -34,11 +49,11 @@ export class Offsidebar extends PureComponent<Props> {
         <div className="app-offsidebar__header">
           <Button
             className="app-offsidebar__header__close"
-            onClick={this.handleClickOutside}
+            onClick={toggleOffsidebar}
           >
             <FontAwesomeIcon
               icon={faTimes}
-              className="app-offsidebar__header__close__icon"
+              className="app-offsidebar__header__close__icon ignore-react-onclickoutside"
             />
           </Button>
           Stuff here

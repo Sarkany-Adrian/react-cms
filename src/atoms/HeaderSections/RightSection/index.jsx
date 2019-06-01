@@ -1,10 +1,15 @@
 // @flow
 import React from 'react';
-// atoms
+
+// Atoms
 import Button from 'atoms/Button';
+import Image from 'atoms/Image';
 import ThemeSelect from 'atoms/ThemeSelect';
 
-// styles
+// Assets
+import JSNinja from 'images/js_ninja.png';
+
+// Styles
 import 'atoms/HeaderSections/RightSection/style.scss';
 
 type TProps = {
@@ -13,13 +18,13 @@ type TProps = {
 
 function RightSection({ onClickProfile }: TProps): React$Element<'div'> {
   return (
-    <div className="right-section d-flex align-items-center">
+    <div className="right-section">
       <Button
-        className="right-section__profile__button"
+        className="right-section__profile__button ignore-react-onclickoutside"
         onClick={onClickProfile}
         primary
       >
-        Profile
+        <Image src={JSNinja} alt="Profile" height={20} />
       </Button>
       <ThemeSelect />
     </div>
