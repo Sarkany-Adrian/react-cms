@@ -10,11 +10,21 @@ import logoImg from 'images/logo_placeholder.png';
 // styles
 import 'atoms/HeaderSections/LeftSection/style.scss';
 
+// types
 type TProps = {
   onClickMenu: (isOpen: boolean) => void
 };
 
+/**
+ *
+ * @param onClickMenu
+ * @returns {*}
+ * @constructor
+ */
 function LeftSection({ onClickMenu }: TProps): React$Element<'div'> {
+  /**
+   *
+   */
   return (
     <div className="left-section d-flex align-items-center">
       <div className="left-section__logo">
