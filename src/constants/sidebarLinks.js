@@ -1,7 +1,7 @@
 // @flow
 
 // types
-import type { SidebarLink } from '../declarations/sidebar';
+import type { SidebarLink } from 'declarations/sidebar';
 
 const sidebarLinks: SidebarLink[] = [
   {

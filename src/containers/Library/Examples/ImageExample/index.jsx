@@ -5,7 +5,7 @@ import JSNinja from 'images/js_ninja.png';
 import placeholder from 'images/placeimg.jpg';
 
 type TProps = {
-  onClick: () => void
+  onClick?: () => void
 };
 
 function ImageExample({ onClick }: TProps): React$Element<*> {

@@ -1,30 +1,30 @@
 // @flow
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-// components & atoms
+
+// components
 import Button from 'atoms/Button';
 import ModalExample from 'containers/Library/Examples/ModalExample';
 import ImageExample from 'containers/Library/Examples/ImageExample';
 import InputExample from 'containers/Library/Examples/InputExample';
 import LogoExample from 'containers/Library/Examples/LogoExample';
-// declarations
+
+// types
 import type { ModalInterface } from 'declarations/modal';
 
 type TProps = {
   modal: ModalInterface
 };
 
+/**
+ *
+ */
 export class Library extends Component<TProps> {
-  onClick = () => {
-    // eslint-disable-next-line
-    console.log('test case');
-  };
-
   render() {
     const { modal } = this.props;
     return (
       <div className="container">
-        <ImageExample onClick={this.onClick} />
+        <ImageExample />
         <hr />
         <InputExample />
         <hr />

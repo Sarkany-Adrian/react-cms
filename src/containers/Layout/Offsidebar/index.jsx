@@ -2,29 +2,43 @@
 import React, { PureComponent } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import cx from 'classnames';
-// Components
+
+// components
 import Button from 'atoms/Button';
-// Style
+
+// style
 import './style.scss';
-// font awesome
+
+// fonts
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+// types
 type Props = {
   isOpen: boolean,
   toggleOffsidebar: () => void,
   HOCtoggleOffsidebar: boolean => void
 };
 
+/**
+ *
+ */
 export class Offsidebar extends PureComponent<Props> {
-  // used by on click outside wrapper
+  /**
+   * Used by on click outside wrapper
+   */
   handleClickOutside = () => {
     const { HOCtoggleOffsidebar } = this.props;
     HOCtoggleOffsidebar(false);
   };
 
+  /**
+   *
+   * @returns {*}
+   */
   render() {
     const { isOpen, toggleOffsidebar } = this.props;
+
     return (
       <aside
         className={cx(
