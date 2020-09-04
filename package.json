@@ -108,7 +108,7 @@
     "mobx": "5.8.0",
     "mobx-logger": "0.7.1",
     "mobx-react": "5.4.3",
-    "node-sass": "4.10.0",
+    "node-sass": "4.13.1",
     "postcss-loader": "3.0.0",
     "react": "16.6.3",
     "react-dom": "16.6.3",
